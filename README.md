@@ -90,11 +90,16 @@ kubetail -l app=echoheaders
 kubectl apply -f sticky-ingress.yaml
 ```
 
+* Test in postman
+```bash
 curl -I a19e65dc19ad711e786180662c36692e-1900213592.ap-southeast-2.elb.amazonaws.com/foo -H 'Host: stickyingress.example.com' (or in postman)
+```
 
 see that requests are directed to only one pod
 
-nginx configuration
+* nginx configuration sample
+
+```bash
 kubectl exec -it ingress-nginx-1623274871-1j9fb bash
 cat /etc/nginx/nginx.conf
 
@@ -104,7 +109,7 @@ upstream sticky-default-echoheaders-x-80 {
       server 100.96.1.5:8080 max_fails=0 fail_timeout=0;
       server 100.96.2.7:8080 max_fails=0 fail_timeout=0;
   }
-
+```
 
 ## Resources
 
