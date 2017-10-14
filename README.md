@@ -121,9 +121,11 @@ upstream sticky-default-echoheaders-x-80 {
 ## Mobile app Cabin
 Developed by guys at bitnami https://github.com/bitnami/cabin
 
-!(https://github.com/shanelee007/k8s-ingress/raw/master/Cabin1.png)
+<img src="https://github.com/shavo007/k8s-ingress/raw/master/Cabin1.png" width="300" height="500">
 
-!(https://github.com/shanelee007/k8s-ingress/raw/master/Cabin2.png)
+
+<img src="https://github.com/shavo007/k8s-ingress/raw/master/Cabin2.png" width="300" height="500">
+
 
 
 
