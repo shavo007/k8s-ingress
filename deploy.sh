@@ -35,7 +35,7 @@ kops create cluster --v=0 \
 kops update cluster ${NAME} --yes
 
 echo "sleep for 5 mins to wait for cluster creation"
-sleep 5m
+sleep 300
 
 echo "kubectl version installed is  $(kubectl version)"
 
@@ -43,11 +43,11 @@ kops export kubecfg ${NAME}
 
 echo "verify nodes are visible in cluster"
 
-kubectl get nodes
+kubectl get nodes -o wide
 
 echo "Install addons for cluster"
 echo "Install dashboard"
-kubectl create -f https://raw.githubusercontent.com/kubernetes/kops/master/addons/kubernetes-dashboard/v1.6.3.yaml
+kubectl apply -f https://raw.githubusercontent.com/kubernetes/dashboard/master/src/deploy/recommended/kubernetes-dashboard.yaml
 
 echo "Install heapster"
-kubectl apply -f https://raw.githubusercontent.com/kubernetes/kops/master/addons/monitoring-standalone/v1.6.0.yaml
+kubectl apply -f https://raw.githubusercontent.com/kubernetes/kops/master/addons/monitoring-standalone/v1.7.0.yaml
