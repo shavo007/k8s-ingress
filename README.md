@@ -102,7 +102,7 @@ while true; do sleep 1;curl -b cookies.txt $ELB/foo -H 'Host: stickyingress.exam
 
 see that requests are directed to only one pod
 
-![Demo](https://github.com/shanelee007/k8s-ingress/raw/master/stickySession.gif)
+![Demo](https://github.com/shavo007/k8s-ingress/raw/master/stickySession.gif)
 
 * NGINX configuration sample
 
