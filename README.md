@@ -79,7 +79,7 @@ curl $ELB/foo -H 'Host: foo.bar.com'
 * Scale echo-headers deployment to three pods
 `kubectl scale  --replicas=3 deployment/echoheaders`
 
-* Install kubetail
+* kubetail -- really useful tool to tail logs
 
 ```bash
 brew tap johanhaleby/kubetail && brew install kubetail
@@ -117,6 +117,15 @@ upstream sticky-default-echoheaders-x-80 {
       server 100.96.2.7:8080 max_fails=0 fail_timeout=0;
   }
 ```
+
+## Mobile app Cabin
+Developed by guys at bitnami https://github.com/bitnami/cabin
+
+!(https://github.com/shanelee007/k8s-ingress/raw/master/Cabin1.png)
+
+!(https://github.com/shanelee007/k8s-ingress/raw/master/Cabin2.png)
+
+
 
 ## Resources
 
