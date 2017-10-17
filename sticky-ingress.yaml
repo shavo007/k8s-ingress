@@ -14,6 +14,6 @@ spec:
     http:
       paths:
       - backend:
-          serviceName: echoheaders-x
+          serviceName: echoheaders
           servicePort: 80
         path: /foo
