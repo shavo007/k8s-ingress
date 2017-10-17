@@ -55,25 +55,18 @@ terraform show -- Inspect state
 
 * create ingress controller (nginx) on AWS and sample app echo-header
 
-```bash
-kubectl apply -f https://raw.githubusercontent.com/kubernetes/ingress-nginx/master/examples/aws/nginx-ingress-controller.yaml
+Follow instructions below:
 
-kubectl get services -o wide | grep nginx
-
-
-kubectl apply -f https://raw.githubusercontent.com/kubernetes/ingress-nginx/master/examples/echo-header.yaml
-
-kubectl apply -f https://raw.githubusercontent.com/kubernetes/ingress-nginx/master/examples/ingress.yaml
-```
+https://github.com/kubernetes/ingress-nginx/tree/master/deploy
 
 * Test accessing default back-end and echo-header service from ELB
 
-ELB=$(kubectl get svc ingress-nginx -o jsonpath='{.status.loadBalancer.ingress[0].hostname}')
+ELB=$(kubectl get svc ingress-nginx -n ingress-nginx  -o jsonpath='{.status.loadBalancer.ingress[0].hostname}')
 
 
 ```bash
 curl $ELB
-curl $ELB/foo -H 'Host: foo.bar.com'
+curl $ELB/backend -H 'Host: foo.bar.com'
 ```
 
 * Scale echo-headers deployment to three pods
@@ -104,7 +97,7 @@ see that requests are directed to only one pod
 
 ![Demo](https://github.com/shavo007/k8s-ingress/raw/master/stickySession.gif)
 
-* NGINX configuration sample
+* NGINX sample configuration 
 
 ```bash
 kubectl exec -it <podname> bash
@@ -120,6 +113,8 @@ upstream sticky-default-echoheaders-x-80 {
 
 ## Mobile app Cabin
 Developed by guys at bitnami https://github.com/bitnami/cabin
+
+Useful for managing your cluster on the go!
 
 <img src="https://github.com/shavo007/k8s-ingress/raw/master/Cabin1.png" width="300" height="500">
 
